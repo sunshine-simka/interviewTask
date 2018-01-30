@@ -41,20 +41,20 @@ public class AppTest {
 //        Test case 4 - After SUBMIT form: the first name field has been highlighted in red and displays the message
 //        enterLastName
         WebElement enterLastName = driver.findElement(By.name("entry.2001128852"));
-//        enterLastName.sendKeys("Simatova");
+        enterLastName.sendKeys("MacDonald");
         enterLastName.sendKeys();
 
 //       enter Phone Number
         WebElement enterPhoneNumber = driver.findElement(By.name("entry.1027052036"));
-        enterPhoneNumber.sendKeys("610-844-4963");
+        enterPhoneNumber.sendKeys("610-111-1111");
 
 //       enter Email
         WebElement enterEmail = driver.findElement(By.name("entry.2001249042"));
-        enterEmail.sendKeys("simatova.irina@gmail.com");
+        enterEmail.sendKeys("jenkins_works@gmail.com");
 
 //       enter Volunteer Date
         WebElement enterDate = driver.findElement(By.xpath("//input[ancestor::div[@data-item-id='610737828']]"));
-        enterDate.sendKeys("03" + Keys.TAB + "20" + Keys.TAB + "2003");
+        enterDate.sendKeys("01" + Keys.TAB + "30" + Keys.TAB + "2018");
 
 //        push SUBMIT button
         WebElement submit = driver.findElement(By.className("freebirdFormviewerViewNavigationSubmitButton"));
@@ -67,7 +67,7 @@ public class AppTest {
 //        Test case 5 - success message that states 'Your response has been recorded'
 //        enterFirstName and submit
         WebElement enterFirstName = driver.findElement(By.name("entry.601248361"));
-        enterFirstName.sendKeys("Irina3");
+        enterFirstName.sendKeys("SamIam");
         submit.sendKeys(Keys.ENTER);
         new Actions(driver).moveToElement(submit).click().perform();
         submit.click();
