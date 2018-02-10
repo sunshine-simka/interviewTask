@@ -40,8 +40,8 @@ public class AppTest {
                 "First Name *", formPage.getFirstName());
 
 //        Test case 4 - After SUBMIT form: the first name field has been highlighted in red and displays the message
-        formPage.enterInfoInForm("", "Old MacDonald", "610-111-1111", "eieio@gmail.com",
-                "01" + Keys.TAB + "02" + Keys.TAB + "2018");
+        formPage.enterInfoInForm("", "New MacDonald", "", "eieio@gmail.com",
+                "02" + Keys.TAB + "01" + Keys.TAB + "2000");
         formPage.submitFailedForm();
         Assert.assertEquals("Wrong error message",
                 "This is a required question", formPage.getErrorMessage());
@@ -49,8 +49,11 @@ public class AppTest {
 
 //        Test case 5 - success message
         formPage.enterInfoInForm("SamIam", "", "", "", "");
+
         formPage.submitForm();
         Assert.assertEquals("There is a wrong message",
                 "Your response has been recorded.", responsePage.getSuccessMessage());
+//      Close window
+        driver.close();
     }
 }
