@@ -9,7 +9,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+/*created by Irina Simatova*/
 public class AppTest {
+    private final String FIRSTNAME = "SamIAm";
+    private final String LASTNAME = "New MacDonald";
+    private final String EMAIL = "sam@iam.io";
+    private final String PHONENUMBER = "610";
+    private final String DATEDAY = "01";
+    private final String DATEMONTH = "02";
+    private final String DATEYEAR = "2003";
+
     @Test
     public void usingPageObjects() {
         System.setProperty("webdriver.gecko.driver", "./geckodriver.exe"); //driver for Selenium3
@@ -40,15 +49,15 @@ public class AppTest {
                 "First Name *", formPage.getFirstName());
 
 //        Test case 4 - After SUBMIT form: the first name field has been highlighted in red and displays the message
-        formPage.enterInfoInForm("", "New MacDonald", "", "eieio@gmail.com",
-                "02" + Keys.TAB + "01" + Keys.TAB + "2000");
+        formPage.enterInfoInForm("", LASTNAME, PHONENUMBER, EMAIL,
+                DATEMONTH + Keys.TAB + DATEDAY + Keys.TAB + DATEYEAR);
         formPage.submitFailedForm();
         Assert.assertEquals("Wrong error message",
                 "This is a required question", formPage.getErrorMessage());
         Assert.assertEquals("Wrong error color", "rgb(219, 68, 55)", formPage.getErrorColor());
 
 //        Test case 5 - success message
-        formPage.enterInfoInForm("SamIam", "", "", "", "");
+        formPage.enterInfoInForm(FIRSTNAME, "", "", "", "");
 
         formPage.submitForm();
         Assert.assertEquals("There is a wrong message",
